@@ -1,0 +1,15 @@
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\bin\Debug\LootManager.exe.config
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\bin\Debug\LootManager.exe
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\bin\Debug\LootManager.pdb
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.csprojAssemblyReference.cache
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\MainWindow.g.cs
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\App.g.cs
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager_MarkupCompile.cache
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager_MarkupCompile.lref
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\MainWindow.baml
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.g.resources
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.Properties.Resources.resources
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.csproj.GenerateResource.cache
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.csproj.CoreCompileInputs.cache
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.exe
+C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\LootManager\obj\Debug\LootManager.pdb

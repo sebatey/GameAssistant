@@ -1,0 +1,26 @@
+﻿<Window x:Class="GameAssistant.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameAssistant"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Game Assistant" Height="450" Width="800">
+    <StackPanel>
+        <Button 
+            x:Name="LootManagerButton"
+            Width="100" 
+            Height="100" 
+            Margin="20" 
+            Click="LootManagerButton_Click" >
+            <StackPanel>
+                <TextBlock 
+                    Text="Loot Manager" 
+                    FontSize="16" 
+                    TextWrapping="Wrap" 
+                    TextAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </StackPanel>
+</Window>
