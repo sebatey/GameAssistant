@@ -17,3 +17,22 @@ C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\GameAssistant
 C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\GameAssistant\bin\Debug\LootManager.pdb
 C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\GameAssistant\bin\Debug\LootManager.exe.config
 C:\Users\Scott\Documents\Visual Studio 2017\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.csproj.CopyComplete
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\GameAssistant.exe.config
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\GameAssistant.exe
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\GameAssistant.pdb
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\LootManager.exe
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\LootManager.pdb
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\bin\Debug\LootManager.exe.config
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.csprojAssemblyReference.cache
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\MainWindow.g.cs
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\App.g.cs
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant_MarkupCompile.cache
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant_MarkupCompile.lref
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\MainWindow.baml
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.g.resources
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.Properties.Resources.resources
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.csproj.GenerateResource.cache
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.csproj.CoreCompileInputs.cache
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.csproj.CopyComplete
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.exe
+C:\Users\sbatey\Documents\Projects\GameAssistant\GameAssistant\obj\Debug\GameAssistant.pdb

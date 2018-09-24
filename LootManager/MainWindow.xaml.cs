@@ -20,6 +20,8 @@ namespace LootManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int ToGenerate = 10;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,11 @@ namespace LootManager
 
         private void GenerateWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-            GenerateWeaponButtonText.Text = ViewModels._WeaponGenerator.GenerateWeapon(1, "Melee").ModelType;
+            WeaponsListView.Items.Clear();
+            for (int i = 0; i < ToGenerate; i++)
+            {
+                WeaponsListView.Items.Add(ViewModels._WeaponGenerator.GenerateWeapon(1, "Melee").Name);
+            }
         }
     }
 }

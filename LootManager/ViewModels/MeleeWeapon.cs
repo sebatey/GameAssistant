@@ -198,9 +198,7 @@ namespace LootManager.ViewModels
 
         private static string GenerateName(MeleeWeapon m)
         {
-            string name = "";
-
-            return name;
+            return ModelTypes[random.Next(0, ModelTypes.Length)];
         }
 
     }
