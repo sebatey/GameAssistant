@@ -34,11 +34,43 @@
                             </StackPanel>
                         </Button>
 
-                        <ListView
-                            x:Name="WeaponsListView"
-                            Margin="10" />
+                        <DataGrid
+                            x:Name="dGrid"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding ViewModels.Weapon}"
+                            SelectedItem="{Binding SelectedCells}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                                    Width="100"
+                                    Binding="{Binding SelectedItem.Name}"
+                                    Header="Name" />
+                            </DataGrid.Columns>
+                        </DataGrid>
 
                     </DockPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Content="Name:" />
+
+                        <Label
+                            x:Name="WeaponName"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Width="100"
+                            Content="{Binding Path=SelectedItem.Name, ElementName=WeaponsListView}" />
+
+                    </Grid>
 
                 </StackPanel>
             </TabItem>

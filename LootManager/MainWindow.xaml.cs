@@ -29,11 +29,15 @@ namespace LootManager
 
         private void GenerateWeaponButton_Click(object sender, RoutedEventArgs e)
         {
-            WeaponsListView.Items.Clear();
+            dGrid.Items.Clear();
+
+            List<ViewModels.Weapon> weapons = new List<ViewModels.Weapon>();
             for (int i = 0; i < ToGenerate; i++)
             {
-                WeaponsListView.Items.Add(ViewModels._WeaponGenerator.GenerateWeapon(1, "Melee").Name);
+                weapons.Add(ViewModels._WeaponGenerator.GenerateWeapon(1, "Melee"));
             }
+
+            dGrid.ItemsSource = weapons;
         }
     }
 }
