@@ -16,11 +16,14 @@ namespace LootManager.ViewModels
          * type = Random => Random
          */
 
-        private const int MinimumAccuracy = 60;
-        private const int MaximumAccuracy = 90;
-        private const double DamageOffsetMultiplier = 0;
-        private const int DamageOffsetMin = 0;
-        private const int DamageOffsetMax = 0;
+        // Accuracy Variables
+        private const int MinimumAccuracy = 50;         // Actual Min is +5 more
+        private const int MaximumAccuracy = 95;         // Max accuracy
+
+        // DamageOffset Variables
+        private const double DamageOffsetMultiplier = 5;// Multiplied by level to determine damage, largest factor in determining damage
+        private const int DamageOffsetMin = 3;          // Min random value added to damage minimum (DamageOffset)
+        private const int DamageOffsetMax = 18;         // Max random value added to damage minimum (DamageOffset)
 
         private static Random random = new Random();
 
@@ -93,7 +96,12 @@ namespace LootManager.ViewModels
 
         private static double GenerateAccuracy()
         {
-            return random.NextDouble() * (MinimumAccuracy - MaximumAccuracy) + MinimumAccuracy;
+            int accuracy = random.Next(MinimumAccuracy, MaximumAccuracy + 1);
+            int noise = 5 - (accuracy % 5);
+            
+            accuracy += noise;
+
+            return accuracy;
         }
 
         private static string GenerateManufacturer()

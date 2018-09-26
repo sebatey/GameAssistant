@@ -9,14 +9,20 @@ namespace LootManager.ViewModels
 {
     class MeleeWeapon : Weapon
     {
-        public double ParryChance { get; set; }                 // Chance to Parry
-        public double BlockChance { get; set; }                 // Chance to Block
-        public double Durability { get; set; }                  // Durability
+        public int ParryChance { get; set; }                 // Chance to Parry
+        public int BlockChance { get; set; }                 // Chance to Block
+        public int Durability { get; set; }                  // Durability
 
         private static string[] ModelTypes = new string[] { "Plasma Sword", "Sword", "Baseball Bat", "Lead Pipe" };
         private static string[] DamageTypes = new string[] { "Slashing", "Blunt", "Piercing", "Fire", "Electricity", "Acid", "Poison", "Plasma", "Explosive" };
-        private static double ParryChanceMultiplier = 0;
-        private static double BlockChanceMultiplier = 0;
+
+        // ParryChance & BlockChance
+        private const int ParryChanceMultiplier = 0;
+        private const int BlockChanceMultiplier = 0;
+
+        // DamageRange Variables
+        private const int DamageRangeMinMultiplier = 1;     //
+        private const int DamageRangeMaxMultiplier = 3;     //
 
         private static Random random = new Random();
 
@@ -34,10 +40,10 @@ namespace LootManager.ViewModels
             m.AttacksPerTurn = GenerateAttacksPerTurn(m.ModelType);
             m.Picture = GeneratePicture(m.ModelType);
             m.Modules = GenerateModules(level, m.ModelType);
-            m.DamageRange = GenerateDamageRange(level, m.DamageType);
             m.ParryChance = GenerateParryChance(level, m.ModelType);
             m.BlockChance = GenerateBlockChance(level, m.ModelType);
             m.Durability = GenerateDurability(level, m.ModelType);
+            m.DamageRange = GenerateDamageRange(level, m.DamageOffset, m.DamageType);
             m.UsableRange = GenerateUsableRange(level, m.ModelType, m.DamageType);
             m.Stats = GenerateStats();
             m.Manufacturer = GenerateManufacturer();
@@ -47,9 +53,9 @@ namespace LootManager.ViewModels
             return m;
         }
 
-        private static double GenerateParryChance(int level, string modeltype)
+        private static int GenerateParryChance(int level, string modeltype)
         {
-            double parrychance = 0;
+            int parrychance = 0;
 
             switch (modeltype)
             {
@@ -59,9 +65,9 @@ namespace LootManager.ViewModels
             return parrychance;
         }
 
-        private static double GenerateBlockChance(int level, string modeltype)
+        private static int GenerateBlockChance(int level, string modeltype)
         {
-            double blockchance = 0;
+            int blockchance = 0;
 
             switch (modeltype)
             {
@@ -71,9 +77,9 @@ namespace LootManager.ViewModels
             return blockchance;
         }
 
-        private static double GenerateDurability(int level, string modeltype)
+        private static int GenerateDurability(int level, string modeltype)
         {
-            double durability = 0;
+            int durability = 0;
 
             switch (modeltype)
             {
@@ -151,13 +157,17 @@ namespace LootManager.ViewModels
             return list;
         }
 
-        private static int GenerateDamageRange(int level, string damagetype)
+        private static int GenerateDamageRange(int level, int damageoffset, string damagetype)
         {
             int damagerange = 0;
+            int damagetypemodifier = 0;
 
             switch (damagetype)
             {
-                // damage type modifier + (level * random)
+                default:
+                    damagerange = damagetypemodifier + damageoffset + 
+                        (level * random.Next(DamageRangeMinMultiplier, DamageRangeMaxMultiplier + 1));
+                    break;
             }
 
             return damagerange;

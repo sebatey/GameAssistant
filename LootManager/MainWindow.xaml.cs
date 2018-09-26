@@ -29,6 +29,7 @@ namespace LootManager
 
         private void GenerateWeaponButton_Click(object sender, RoutedEventArgs e)
         {
+            dGrid.ItemsSource = null;
             dGrid.Items.Clear();
 
             List<ViewModels.Weapon> weapons = new List<ViewModels.Weapon>();

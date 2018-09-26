@@ -41,8 +41,8 @@
                             SelectedItem="{Binding SelectedCells}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn
-                                    Width="100"
-                                    Binding="{Binding SelectedItem.Name}"
+                                    Width="*"
+                                    Binding="{Binding Path=Name}"
                                     Header="Name" />
                             </DataGrid.Columns>
                         </DataGrid>
@@ -56,6 +56,8 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
 
                         <Label
@@ -68,7 +70,48 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Width="100"
-                            Content="{Binding Path=SelectedItem.Name, ElementName=WeaponsListView}" />
+                            Content="{Binding Path=SelectedItem.Name, ElementName=dGrid}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Content="Damage:" />
+
+                        <Label
+                            x:Name="WeaponDamageOffset"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="40"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Right"
+                            Content="{Binding Path=SelectedItem.DamageOffset, ElementName=dGrid}" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="20"
+                            HorizontalAlignment="Center"
+                            Content=" - " />
+
+                        <Label
+                            x:Name="WeaponDamageRange"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="40"
+                            HorizontalAlignment="Right"
+                            HorizontalContentAlignment="Left"
+                            Content="{Binding Path=SelectedItem.DamageRange, ElementName=dGrid}" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Accuracy:" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="100"
+                            Content="{Binding Path=SelectedItem.Accuracy, ElementName=dGrid}" />
 
                     </Grid>
 
