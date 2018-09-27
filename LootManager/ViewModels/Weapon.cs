@@ -9,6 +9,11 @@ namespace LootManager.ViewModels
 {
     class Weapon
     {
+        // Items already included in MainWindow.xaml
+        // + Name
+        // + DamageOffset
+        // + DamageRange
+        // + Accuracy
         public string Name { get; set; }                    // Name of Weapon
         public int DamageOffset { get; set; }               // Minimum Damage
         public int DamageRange { get; set; }                // DamageOffset + DamageRange = Maximum Damage
@@ -20,6 +25,7 @@ namespace LootManager.ViewModels
         public string DamageType { get; set; }              // Damage "Element"
         public string Manufacturer { get; set; }            // Weapon Manufacturer
         public string ModelType { get; set; }               // Pistol / Rifle / Plasma Sword / Baseball Bat
+        public string Rarity { get; set; }                  // How unique this weapon is
         public Statistics Stats { get; set; }               // Stats
         public Image Picture { get; set; }                  // Image
         public List<Module> Modules { get; set; }           // Maximum Ability Slots

@@ -17,6 +17,24 @@
                 <StackPanel Orientation="Horizontal">
 
                     <DockPanel>
+
+                        <Label
+                            HorizontalContentAlignment="Center"
+                            Content="Level Range"
+                            DockPanel.Dock="Top" />
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                            <TextBox
+                                x:Name="LevelMinTextBox"
+                                Width="55"
+                                Text="1" />
+                            <Label Width="30" Content="To" />
+                            <TextBox
+                                x:Name="LevelMaxTextBox"
+                                Width="55"
+                                Text="3" />
+                        </StackPanel>
+
                         <Button
                             x:Name="GenerateWeaponButton"
                             Width="100"
@@ -36,14 +54,12 @@
 
                         <DataGrid
                             x:Name="dGrid"
+                            Margin="20"
                             AutoGenerateColumns="False"
                             ItemsSource="{Binding ViewModels.Weapon}"
                             SelectedItem="{Binding SelectedCells}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn
-                                    Width="*"
-                                    Binding="{Binding Path=Name}"
-                                    Header="Name" />
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" />
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -53,33 +69,46 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
 
+                        <!--  Name  -->
                         <Label
-                            Grid.Row="0"
+                            Grid.Row="1"
                             Grid.Column="0"
                             Content="Name:" />
 
                         <Label
                             x:Name="WeaponName"
-                            Grid.Row="0"
+                            Grid.Row="1"
                             Grid.Column="1"
                             Width="100"
                             Content="{Binding Path=SelectedItem.Name, ElementName=dGrid}" />
 
+                        <!--  Damage  -->
                         <Label
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="0"
                             Content="Damage:" />
 
                         <Label
                             x:Name="WeaponDamageOffset"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="1"
                             Width="40"
                             HorizontalAlignment="Left"
@@ -87,7 +116,7 @@
                             Content="{Binding Path=SelectedItem.DamageOffset, ElementName=dGrid}" />
 
                         <Label
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="1"
                             Width="20"
                             HorizontalAlignment="Center"
@@ -95,21 +124,99 @@
 
                         <Label
                             x:Name="WeaponDamageRange"
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Grid.Column="1"
                             Width="40"
                             HorizontalAlignment="Right"
                             HorizontalContentAlignment="Left"
                             Content="{Binding Path=SelectedItem.DamageRange, ElementName=dGrid}" />
 
+                        <!--  To Be Implemented Still  -->
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Content="Stats" />
+
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            Content="Stats" />
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Content="Stats" />
+                        <!--  To Be Implemented Still  -->
+
+                        <!--  Rarity  -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Content="Rarity" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Width="100"
+                            Content="{Binding Path=SelectedItem.Rarity, ElementName=dGrid}" />
+
+                        <!--  Accuracy  -->
                         <Label
                             Grid.Row="2"
-                            Grid.Column="0"
+                            Grid.Column="2"
                             Content="Accuracy:" />
 
                         <Label
                             Grid.Row="2"
-                            Grid.Column="1"
+                            Grid.Column="3"
                             Width="100"
                             Content="{Binding Path=SelectedItem.Accuracy, ElementName=dGrid}" />
 

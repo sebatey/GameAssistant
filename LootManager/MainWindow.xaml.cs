@@ -21,6 +21,10 @@ namespace LootManager
     public partial class MainWindow : Window
     {
         private int ToGenerate = 10;
+        private int LevelMin = 0;
+        private int LevelMax = 0;
+
+        private Random random = new Random();
 
         public MainWindow()
         {
@@ -32,10 +36,13 @@ namespace LootManager
             dGrid.ItemsSource = null;
             dGrid.Items.Clear();
 
+            LevelMin = Convert.ToInt32(LevelMinTextBox.Text);
+            LevelMax = Convert.ToInt32(LevelMaxTextBox.Text);
+
             List<ViewModels.Weapon> weapons = new List<ViewModels.Weapon>();
             for (int i = 0; i < ToGenerate; i++)
             {
-                weapons.Add(ViewModels._WeaponGenerator.GenerateWeapon(1, "Melee"));
+                weapons.Add(ViewModels._WeaponGenerator.GenerateWeapon(random.Next(LevelMin, LevelMax), "Melee"));
             }
 
             dGrid.ItemsSource = weapons;
