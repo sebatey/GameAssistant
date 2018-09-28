@@ -35,7 +35,7 @@ namespace LootManager.ViewModels
 
             switch (type)
             {
-                case "Ranged":
+                case "Projectile":
                     w = new ProjectileWeapon();
                     isProjectile = true;
                     break;

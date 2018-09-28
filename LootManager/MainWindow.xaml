@@ -87,10 +87,52 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
+                        <!-- Save Button -->
+                        <Button
+                            x:Name="SaveButton"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="10"
+                            Content="Save"
+                            Click="SaveButton_Click" />
+
+                        <!-- Load Button -->
+                        <Button
+                            x:Name="LoadButton"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="Load"
+                            Click="LoadButton_Click" />
+
+                        <!-- Weapon Type Radio Buttons -->
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            Grid.Column="2"
+                            Grid.Row="0">
+                            <RadioButton
+                                x:Name="MeleeRadioButton"
+                                Content="Melee" 
+                                GroupName="WeaponTypeGroup"
+                                IsChecked="True" />
+                            <RadioButton
+                                x:Name="ProjectileRadioButton"
+                                Content="Projectile" 
+                                GroupName="WeaponTypeGroup" />
+                            <RadioButton
+                                x:Name="RandomRadioButton"
+                                Content="Random" 
+                                GroupName="WeaponTypeGroup" />
+                        </StackPanel>
+
                         <!--  Name  -->
                         <Label
                             Grid.Row="1"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Name:" />
 
                         <Label
@@ -98,12 +140,15 @@
                             Grid.Row="1"
                             Grid.Column="1"
                             Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Name, ElementName=dGrid}" />
 
                         <!--  Damage  -->
                         <Label
                             Grid.Row="2"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Damage:" />
 
                         <Label
@@ -135,64 +180,92 @@
                         <Label
                             Grid.Row="3"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="3"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="4"
+                            Width="100"
                             Grid.Column="0"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="4"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="5"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="5"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="6"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="6"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="7"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="7"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="8"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="8"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
 
                         <Label
                             Grid.Row="9"
                             Grid.Column="0"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
                             Grid.Row="9"
                             Grid.Column="1"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <!--  To Be Implemented Still  -->
 
@@ -200,26 +273,107 @@
                         <Label
                             Grid.Row="1"
                             Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Rarity" />
 
                         <Label
                             Grid.Row="1"
                             Grid.Column="3"
                             Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Rarity, ElementName=dGrid}" />
 
                         <!--  Accuracy  -->
                         <Label
                             Grid.Row="2"
                             Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="Accuracy:" />
 
                         <Label
                             Grid.Row="2"
                             Grid.Column="3"
                             Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Accuracy, ElementName=dGrid}" />
 
+                        <!-- Usable Range -->
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Range" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.UsableRange, ElementName=dGrid}" />
+    
+                        <!-- Attacks Per Turn -->
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Attacks" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.AttacksPerTurn, ElementName=dGrid}" />
+
+                        <!-- Parry Chance -->
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Parry" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.ParryChance, ElementName=dGrid}" />
+
+                        <!-- Block Chance -->
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Block" />
+
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.BlockChance, ElementName=dGrid}" />
+
+                        <!-- Durability -->
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Durability" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.Durability, ElementName=dGrid}" />
+                        
                     </Grid>
 
                 </StackPanel>
