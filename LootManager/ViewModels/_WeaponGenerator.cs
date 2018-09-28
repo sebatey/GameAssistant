@@ -25,6 +25,14 @@ namespace LootManager.ViewModels
         private const int DamageOffsetMin = 3;          // Min random value added to damage minimum (DamageOffset)
         private const int DamageOffsetMax = 18;         // Max random value added to damage minimum (DamageOffset)
 
+        // Rarity Variables
+        private const int RarityMin = 0;
+        private const int RarityMax = 100;
+        private const int RarityCommonThreshhold = 50;
+        private const int RarityUncommonThreshhold = 75;
+        private const int RarityRareThreshhold = 87;
+        private const int RarityLegendaryThreshhold = 93;
+
         private static Random random = new Random();
 
         public static Weapon GenerateWeapon(int level, string type)
@@ -59,6 +67,7 @@ namespace LootManager.ViewModels
 
             w.DamageOffset = GenerateDamageOffset(level);
             w.Accuracy = GenerateAccuracy();
+            w.Rarity = GenerateRarity();
             w.Modules = new List<Module>();
 
             if (isProjectile)
@@ -102,6 +111,35 @@ namespace LootManager.ViewModels
             accuracy += noise;
 
             return accuracy;
+        }
+
+        private static string GenerateRarity()
+        {
+            string rarity = "";
+            int raritylevel = random.Next(RarityMin, RarityMax);
+
+            if(raritylevel < RarityCommonThreshhold)
+            {
+                rarity = "Common";
+            }
+            else if(raritylevel < RarityUncommonThreshhold)
+            {
+                rarity = "Uncommon";
+            }
+            else if(raritylevel < RarityRareThreshhold)
+            {
+                rarity = "Rare";
+            }
+            else if(raritylevel < RarityLegendaryThreshhold)
+            {
+                rarity = "Legendary";
+            }
+            else
+            {
+                rarity = "Mythical";
+            }
+
+            return rarity;
         }
 
         private static string GenerateManufacturer()

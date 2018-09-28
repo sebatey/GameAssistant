@@ -87,43 +87,43 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <!-- Save Button -->
+                        <!--  Save Button  -->
                         <Button
                             x:Name="SaveButton"
                             Grid.Row="0"
                             Grid.Column="0"
                             Margin="10"
-                            Content="Save"
-                            Click="SaveButton_Click" />
+                            Click="SaveButton_Click"
+                            Content="Save" />
 
-                        <!-- Load Button -->
+                        <!--  Load Button  -->
                         <Button
                             x:Name="LoadButton"
                             Grid.Row="0"
                             Grid.Column="1"
                             Margin="10"
-                            Content="Load"
-                            Click="LoadButton_Click" />
+                            Click="LoadButton_Click"
+                            Content="Load" />
 
-                        <!-- Weapon Type Radio Buttons -->
+                        <!--  Weapon Type Radio Buttons  -->
                         <StackPanel
-                            Orientation="Horizontal"
+                            Grid.Row="0"
+                            Grid.Column="2"
                             Grid.ColumnSpan="2"
                             VerticalAlignment="Center"
-                            Grid.Column="2"
-                            Grid.Row="0">
+                            Orientation="Horizontal">
                             <RadioButton
                                 x:Name="MeleeRadioButton"
-                                Content="Melee" 
+                                Content="Melee"
                                 GroupName="WeaponTypeGroup"
                                 IsChecked="True" />
                             <RadioButton
                                 x:Name="ProjectileRadioButton"
-                                Content="Projectile" 
+                                Content="Projectile"
                                 GroupName="WeaponTypeGroup" />
                             <RadioButton
                                 x:Name="RandomRadioButton"
-                                Content="Random" 
+                                Content="Random"
                                 GroupName="WeaponTypeGroup" />
                         </StackPanel>
 
@@ -192,8 +192,8 @@
 
                         <Label
                             Grid.Row="4"
-                            Width="100"
                             Grid.Column="0"
+                            Width="100"
                             HorizontalContentAlignment="Center"
                             Content="Stats" />
                         <Label
@@ -299,7 +299,7 @@
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Accuracy, ElementName=dGrid}" />
 
-                        <!-- Usable Range -->
+                        <!--  Usable Range  -->
                         <Label
                             Grid.Row="3"
                             Grid.Column="2"
@@ -313,8 +313,8 @@
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.UsableRange, ElementName=dGrid}" />
-    
-                        <!-- Attacks Per Turn -->
+
+                        <!--  Attacks Per Turn  -->
                         <Label
                             Grid.Row="4"
                             Grid.Column="2"
@@ -329,7 +329,7 @@
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.AttacksPerTurn, ElementName=dGrid}" />
 
-                        <!-- Parry Chance -->
+                        <!--  Parry Chance  -->
                         <Label
                             Grid.Row="5"
                             Grid.Column="2"
@@ -344,7 +344,7 @@
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.ParryChance, ElementName=dGrid}" />
 
-                        <!-- Block Chance -->
+                        <!--  Block Chance  -->
                         <Label
                             Grid.Row="6"
                             Grid.Column="2"
@@ -359,7 +359,7 @@
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.BlockChance, ElementName=dGrid}" />
 
-                        <!-- Durability -->
+                        <!--  Durability  -->
                         <Label
                             Grid.Row="7"
                             Grid.Column="2"
@@ -373,7 +373,7 @@
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Durability, ElementName=dGrid}" />
-                        
+
                     </Grid>
 
                 </StackPanel>

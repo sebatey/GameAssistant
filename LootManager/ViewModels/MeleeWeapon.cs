@@ -33,6 +33,7 @@ namespace LootManager.ViewModels
             m.DamageOffset = w.DamageOffset;
             m.Accuracy = w.Accuracy;
             m.Modules = w.Modules;
+            m.Rarity = w.Rarity;
 
             m.ModelType = GenerateModelType();
             m.DamageType = GenerateDamageType(m.ModelType);
@@ -49,6 +50,8 @@ namespace LootManager.ViewModels
             m.Manufacturer = GenerateManufacturer();
             m.Value = GenerateValue();
             m.Name = GenerateName(m);
+
+            Console.WriteLine("Rarity: " + m.Rarity);
 
             return m;
         }
