@@ -9,6 +9,10 @@ namespace LootManager.ViewModels
 {
     class Weapon
     {
+        // Items to add to Weapon
+        // Critical Hit Multiplier
+        // Critical Hit Range
+
         // Items already included in MainWindow.xaml
         // + Name
         // + DamageOffset

@@ -20,7 +20,7 @@ namespace LootManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int ToGenerate = 10;
+        private int ToGenerate = 0;
         private int LevelMin = 0;
         private int LevelMax = 0;
 
@@ -38,6 +38,7 @@ namespace LootManager
 
             LevelMin = Convert.ToInt32(LevelMinTextBox.Text);
             LevelMax = Convert.ToInt32(LevelMaxTextBox.Text);
+            ToGenerate = Convert.ToInt32(NumberOfWeaponsTextBox.Text);
 
             List<ViewModels.Weapon> weapons = new List<ViewModels.Weapon>();
 

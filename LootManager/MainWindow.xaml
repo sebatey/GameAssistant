@@ -10,6 +10,10 @@
     Height="450"
     WindowState="Maximized"
     mc:Ignorable="d">
+    <!--
+        Finish Adding labels for information
+        Add Radio Button Group for Rarity to Generate
+    -->
     <Grid>
         <TabControl>
             <TabItem Header="Loot Generator" />
@@ -17,6 +21,17 @@
                 <StackPanel Orientation="Horizontal">
 
                     <DockPanel>
+
+                        <Label
+                            HorizontalContentAlignment="Center"
+                            Content="Number of Weapons"
+                            DockPanel.Dock="Top" />
+
+                        <TextBox
+                            x:Name="NumberOfWeaponsTextBox"
+                            HorizontalContentAlignment="Center"
+                            DockPanel.Dock="Top"
+                            Text="10" />
 
                         <Label
                             HorizontalContentAlignment="Center"
