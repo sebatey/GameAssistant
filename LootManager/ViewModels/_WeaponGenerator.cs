@@ -52,16 +52,8 @@ namespace LootManager.ViewModels
                     isProjectile = false;
                     break;
                 default:
-                    if (random.Next(0, 10) % 2 == 0)
-                    {
-                        w = new ProjectileWeapon();
-                        isProjectile = true;
-                    }
-                    else
-                    {
-                        w = new MeleeWeapon();
-                        isProjectile = false;
-                    }
+                    w = new ProjectileWeapon();
+                    isProjectile = true;
                     break;
             }
 

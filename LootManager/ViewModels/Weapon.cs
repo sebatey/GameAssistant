@@ -26,6 +26,7 @@ namespace LootManager.ViewModels
         public int UsableRange { get; set; }                // Range
         public int Size { get; set; }                       // Hands Required to Wield
         public double Accuracy { get; set; }                // Dificulty
+        public string WeaponType { get; set; }              // Melee / Projectile
         public string DamageType { get; set; }              // Damage "Element"
         public string Manufacturer { get; set; }            // Weapon Manufacturer
         public string ModelType { get; set; }               // Pistol / Rifle / Plasma Sword / Baseball Bat

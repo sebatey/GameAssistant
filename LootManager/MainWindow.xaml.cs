@@ -56,7 +56,7 @@ namespace LootManager
             {
                 for (int i = 0; i < ToGenerate; i++)
                 {
-                    weapons.Add(ViewModels._WeaponGenerator.GenerateWeapon(random.Next(LevelMin, LevelMax), "Ranged"));
+                    weapons.Add(ViewModels._WeaponGenerator.GenerateWeapon(random.Next(LevelMin, LevelMax), "Projectile"));
                 }
             }
 

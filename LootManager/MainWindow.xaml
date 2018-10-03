@@ -88,6 +88,8 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -121,26 +123,32 @@
                             Content="Load" />
 
                         <!--  Weapon Type Radio Buttons  -->
-                        <StackPanel
+                        <Border
                             Grid.Row="0"
                             Grid.Column="2"
                             Grid.ColumnSpan="2"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <RadioButton
-                                x:Name="MeleeRadioButton"
-                                Content="Melee"
-                                GroupName="WeaponTypeGroup"
-                                IsChecked="True" />
-                            <RadioButton
-                                x:Name="ProjectileRadioButton"
-                                Content="Projectile"
-                                GroupName="WeaponTypeGroup" />
-                            <RadioButton
-                                x:Name="RandomRadioButton"
-                                Content="Random"
-                                GroupName="WeaponTypeGroup" />
-                        </StackPanel>
+                            Margin="10"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Margin="5" Text="Type" />
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <RadioButton
+                                        x:Name="MeleeRadioButton"
+                                        Content="Melee"
+                                        GroupName="WeaponTypeGroup"
+                                        IsChecked="True" />
+                                    <RadioButton
+                                        x:Name="ProjectileRadioButton"
+                                        Content="Projectile"
+                                        GroupName="WeaponTypeGroup" />
+                                    <RadioButton
+                                        x:Name="RandomRadioButton"
+                                        Content="Random"
+                                        GroupName="WeaponTypeGroup" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
 
                         <!--  Name  -->
                         <Label
@@ -388,6 +396,25 @@
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Durability, ElementName=dGrid}" />
+
+                        <Image
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            Grid.ColumnSpan="2" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Weapon Type" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.WeaponType, ElementName=dGrid}" />
 
                     </Grid>
 

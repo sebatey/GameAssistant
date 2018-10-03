@@ -13,9 +13,15 @@ namespace LootManager.ViewModels
         public double ReloadSpeed { get; set; }             // Turns to fire again
         public string AmmoType { get; set; }                // 9mm, plasma, incindiary, drones
 
-        private static string[] ModelTypes = new string[] { };
-        private static string[] AmmoTypes = new string[] { };
-        private static string[] DamageTypes = new string[] { };
+        private static string[] ModelTypes = new string[] { "Pistol", "Marksman Rifle", "Sniper Rifle", "Assault Rifle" };
+        private static string[] AmmoTypes = new string[] { "9mm", ".357", ".50", "Shells" };
+        private static string[] DamageTypes = new string[] { "Piercing" };
+
+        private const string WEAPON_TYPE = "Projectile";
+
+        // DamageRange Variables
+        private const int DamageRangeMinMultiplier = 1;     //
+        private const int DamageRangeMaxMultiplier = 3;     //
 
         private static Random random = new Random();
 
@@ -27,6 +33,7 @@ namespace LootManager.ViewModels
             p.Accuracy = w.Accuracy;
             p.Modules = w.Modules;
 
+            p.WeaponType = WEAPON_TYPE;
             p.AmmoType = GenerateAmmoType();
             p.ModelType = GenerateModelType();
             p.DamageType = GenerateDamageType(p.ModelType);
@@ -34,7 +41,7 @@ namespace LootManager.ViewModels
             p.AttacksPerTurn = GenerateAttacksPerTurn(p.ModelType);
             p.Picture = GeneratePicture(p.ModelType);
             p.Modules = GenerateModules(level, p.ModelType);
-            p.DamageRange = GenerateDamageRange(level, p.DamageType);
+            p.DamageRange = GenerateDamageRange(level, p.DamageOffset, p.DamageType);
             p.ReloadSpeed = GenerateReloadSpeed(p.ModelType, p.DamageType);
             p.UsableRange = GenerateUsableRange(level, p.ModelType, p.DamageType);
             p.MaximumClipSize = GenerateMaximumClipSize(level, p.ModelType, p.DamageType);
@@ -131,13 +138,17 @@ namespace LootManager.ViewModels
             return list;
         }
 
-        private static int GenerateDamageRange(int level, string damagetype)
+        private static int GenerateDamageRange(int level, int damageoffset, string damagetype)
         {
             int damagerange = 0;
+            int damagetypemodifier = 0;
 
             switch (damagetype)
             {
-                // damage type modifier + (level * random)
+                default:
+                    damagerange = damagetypemodifier + damageoffset +
+                        (level * random.Next(DamageRangeMinMultiplier, DamageRangeMaxMultiplier + 1));
+                    break;
             }
 
             return damagerange;
@@ -190,9 +201,8 @@ namespace LootManager.ViewModels
 
         private static string GenerateName(ProjectileWeapon p)
         {
-            string name = "";
-
-            return name;
+            // Temporary
+            return ModelTypes[random.Next(0, ModelTypes.Length)];
         }
 
     }

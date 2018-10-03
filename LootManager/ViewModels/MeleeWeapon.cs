@@ -16,6 +16,8 @@ namespace LootManager.ViewModels
         private static string[] ModelTypes = new string[] { "Plasma Sword", "Sword", "Baseball Bat", "Lead Pipe" };
         private static string[] DamageTypes = new string[] { "Slashing", "Blunt", "Piercing", "Fire", "Electricity", "Acid", "Poison", "Plasma", "Explosive" };
 
+        private const string WEAPON_TYPE = "Melee";
+
         // ParryChance & BlockChance
         private const int ParryChanceMultiplier = 0;
         private const int BlockChanceMultiplier = 0;
@@ -35,6 +37,7 @@ namespace LootManager.ViewModels
             m.Modules = w.Modules;
             m.Rarity = w.Rarity;
 
+            m.WeaponType = WEAPON_TYPE;
             m.ModelType = GenerateModelType();
             m.DamageType = GenerateDamageType(m.ModelType);
             m.Size = GenerateSize(m.ModelType);
@@ -211,6 +214,7 @@ namespace LootManager.ViewModels
 
         private static string GenerateName(MeleeWeapon m)
         {
+            // Temporary
             return ModelTypes[random.Next(0, ModelTypes.Length)];
         }
 
