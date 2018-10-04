@@ -90,6 +90,8 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -200,6 +202,7 @@
                             Content="{Binding Path=SelectedItem.DamageRange, ElementName=dGrid}" />
 
                         <!--  To Be Implemented Still  -->
+                        <!--  Stats  -->
                         <Label
                             Grid.Row="3"
                             Grid.Column="0"
@@ -352,16 +355,31 @@
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.AttacksPerTurn, ElementName=dGrid}" />
 
-                        <!--  Parry Chance  -->
+                        <!--  Size  -->
                         <Label
                             Grid.Row="5"
+                            Grid.Column="2"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Size" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.Size, ElementName=dGrid}" />
+
+                        <!--  Parry Chance  -->
+                        <Label
+                            Grid.Row="7"
                             Grid.Column="2"
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="Parry" />
 
                         <Label
-                            Grid.Row="5"
+                            Grid.Row="7"
                             Grid.Column="3"
                             Width="100"
                             HorizontalContentAlignment="Center"
@@ -369,14 +387,14 @@
 
                         <!--  Block Chance  -->
                         <Label
-                            Grid.Row="6"
+                            Grid.Row="8"
                             Grid.Column="2"
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="Block" />
 
                         <Label
-                            Grid.Row="6"
+                            Grid.Row="8"
                             Grid.Column="3"
                             Width="100"
                             HorizontalContentAlignment="Center"
@@ -384,37 +402,218 @@
 
                         <!--  Durability  -->
                         <Label
-                            Grid.Row="7"
+                            Grid.Row="9"
                             Grid.Column="2"
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="Durability" />
 
                         <Label
-                            Grid.Row="7"
+                            Grid.Row="9"
                             Grid.Column="3"
                             Width="100"
                             HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.Durability, ElementName=dGrid}" />
 
-                        <Image
+                        <!--  To Be Implemented Still  -->
+                        <!--  Modules  -->
+                        <Label
                             Grid.Row="1"
                             Grid.Column="4"
-                            Grid.ColumnSpan="2" />
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Module" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content=" Module" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Module" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content=" Module" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Module" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content=" Module" />
 
                         <Label
                             Grid.Row="4"
                             Grid.Column="4"
                             Width="100"
                             HorizontalContentAlignment="Center"
-                            Content="Weapon Type" />
+                            Content="Module" />
 
                         <Label
                             Grid.Row="4"
                             Grid.Column="5"
                             Width="100"
                             HorizontalContentAlignment="Center"
+                            Content=" Module" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Module" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content=" Module" />
+                        <!--  To Be Implemented Still  -->
+
+                        <!--  Maximum Clip Size  -->
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Clip" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.MaximumClipSize, ElementName=dGrid}" />
+
+                        <!--  Reload Speed  -->
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Reload Speed" />
+
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.ReloadSpeed, ElementName=dGrid}" />
+
+                        <!--  Ammo Type  -->
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="4"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Ammo" />
+
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="5"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.AmmoType, ElementName=dGrid}" />
+
+                        <!--  Picture  -->
+                        <Image
+                            Grid.Row="1"
+                            Grid.RowSpan="3"
+                            Grid.Column="6"
+                            Grid.ColumnSpan="2" />
+
+                        <!--  Weapon Type  -->
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="6"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Weapon Type" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="7"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
                             Content="{Binding Path=SelectedItem.WeaponType, ElementName=dGrid}" />
+
+                        <!--  Model Type  -->
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="6"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Model Type" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="7"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.ModelType, ElementName=dGrid}" />
+
+                        <!--  Manufacturer  -->
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="6"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Manufacturer" />
+
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="7"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.Manufacturer, ElementName=dGrid}" />
+
+                        <!--  Damage Type  -->
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="6"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Damage Type" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="7"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.DamageType, ElementName=dGrid}" />
+
+                        <!--  Value  -->
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="6"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="Value" />
+
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="7"
+                            Width="100"
+                            HorizontalContentAlignment="Center"
+                            Content="{Binding Path=SelectedItem.Value, ElementName=dGrid}" />
 
                     </Grid>
 

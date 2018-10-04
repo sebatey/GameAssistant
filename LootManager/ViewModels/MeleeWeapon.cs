@@ -23,8 +23,8 @@ namespace LootManager.ViewModels
         private const int BlockChanceMultiplier = 0;
 
         // DamageRange Variables
-        private const int DamageRangeMinMultiplier = 1;     //
-        private const int DamageRangeMaxMultiplier = 3;     //
+        private const int DamageRangeMinMultiplier = 1;     
+        private const int DamageRangeMaxMultiplier = 3;     
 
         private static Random random = new Random();
 
@@ -53,8 +53,6 @@ namespace LootManager.ViewModels
             m.Manufacturer = GenerateManufacturer();
             m.Value = GenerateValue();
             m.Name = GenerateName(m);
-
-            Console.WriteLine("Rarity: " + m.Rarity);
 
             return m;
         }
