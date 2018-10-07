@@ -15,24 +15,6 @@ namespace LootManager.ViewModels
          * type = Melee  => MeleeWeapon
          * type = Random => Random
          */
-
-        // Accuracy Variables
-        private const int MinimumAccuracy = 50;         // Actual Min is +5 more
-        private const int MaximumAccuracy = 95;         // Max accuracy
-
-        // DamageOffset Variables
-        private const double DamageOffsetMultiplier = 5;// Multiplied by level to determine damage, largest factor in determining damage
-        private const int DamageOffsetMin = 3;          // Min random value added to damage minimum (DamageOffset)
-        private const int DamageOffsetMax = 18;         // Max random value added to damage minimum (DamageOffset)
-
-        // Rarity Variables
-        private const int RarityMin = 0;
-        private const int RarityMax = 100;
-        private const int RarityCommonThreshhold = 50;
-        private const int RarityUncommonThreshhold = 75;
-        private const int RarityRareThreshhold = 87;
-        private const int RarityLegendaryThreshhold = 93;
-
         private static Random random = new Random();
 
         public static Weapon GenerateWeapon(int level, string type)
@@ -56,10 +38,9 @@ namespace LootManager.ViewModels
                     isProjectile = true;
                     break;
             }
-
-            w.DamageOffset = GenerateDamageOffset(level);
-            w.Accuracy = GenerateAccuracy();
-            w.Rarity = GenerateRarity();
+            
+            w.Accuracy = Weapon.GenerateAccuracy();
+            w.Rarity = Weapon.GenerateRarity();
             w.Modules = new List<Module>();
 
             if (isProjectile)
@@ -70,75 +51,6 @@ namespace LootManager.ViewModels
             {
                 return MeleeWeapon.GenerateMeleeWeapon(level, w);
             }
-        }
-
-        private static string GenerateName()
-        {
-            string name = "";
-
-            return name;
-        }
-
-        private static int GenerateDamageOffset(int level)
-        {
-            int damageoffset = 0;
-
-            damageoffset = (int)((DamageOffsetMultiplier * level) + random.Next(DamageOffsetMin, DamageOffsetMax));
-
-            return damageoffset;
-        }
-
-        private static int GenerateValue()
-        {
-            int value = 0;
-
-            return value;
-        }
-
-        private static double GenerateAccuracy()
-        {
-            int accuracy = random.Next(MinimumAccuracy, MaximumAccuracy + 1);
-            int noise = 5 - (accuracy % 5);
-            
-            accuracy += noise;
-
-            return accuracy;
-        }
-
-        private static string GenerateRarity()
-        {
-            string rarity = "";
-            int raritylevel = random.Next(RarityMin, RarityMax);
-
-            if(raritylevel < RarityCommonThreshhold)
-            {
-                rarity = "Common";
-            }
-            else if(raritylevel < RarityUncommonThreshhold)
-            {
-                rarity = "Uncommon";
-            }
-            else if(raritylevel < RarityRareThreshhold)
-            {
-                rarity = "Rare";
-            }
-            else if(raritylevel < RarityLegendaryThreshhold)
-            {
-                rarity = "Legendary";
-            }
-            else
-            {
-                rarity = "Mythical";
-            }
-
-            return rarity;
-        }
-
-        private static string GenerateManufacturer()
-        {
-            string manufacturer = "";
-
-            return manufacturer;
         }
     }
 }

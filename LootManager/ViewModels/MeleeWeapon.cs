@@ -14,25 +14,22 @@ namespace LootManager.ViewModels
         public int Durability { get; set; }                  // Durability
 
         private static string[] ModelTypes = new string[] { "Plasma Sword", "Sword", "Baseball Bat", "Lead Pipe" };
-        private static string[] DamageTypes = new string[] { "Slashing", "Blunt", "Piercing", "Fire", "Electricity", "Acid", "Poison", "Plasma", "Explosive" };
+        private static string[] DamageTypes = new string[] { "Slashing", "Blunt", "Piercing", "Fire", "Electricity", "Acid", "Poison", "Plasma" };
+
+        private static string[] DamageRanges = new string[] { "D4", "D6", "D8", "D10", "D12", "D20" };
 
         private const string WEAPON_TYPE = "Melee";
 
         // ParryChance & BlockChance
         private const int ParryChanceMultiplier = 0;
-        private const int BlockChanceMultiplier = 0;
-
-        // DamageRange Variables
-        private const int DamageRangeMinMultiplier = 1;     
-        private const int DamageRangeMaxMultiplier = 3;     
+        private const int BlockChanceMultiplier = 0;     
 
         private static Random random = new Random();
 
         public static MeleeWeapon GenerateMeleeWeapon(int level, Weapon w)
         {
             MeleeWeapon m = new MeleeWeapon();
-            
-            m.DamageOffset = w.DamageOffset;
+
             m.Accuracy = w.Accuracy;
             m.Modules = w.Modules;
             m.Rarity = w.Rarity;
@@ -47,7 +44,8 @@ namespace LootManager.ViewModels
             m.ParryChance = GenerateParryChance(level, m.ModelType);
             m.BlockChance = GenerateBlockChance(level, m.ModelType);
             m.Durability = GenerateDurability(level, m.ModelType);
-            m.DamageRange = GenerateDamageRange(level, m.DamageOffset, m.DamageType);
+            m.DamageRange = GenerateDamageRange(level, m);
+            m.DamageOffset = GenerateDamageOffset(level, m);
             m.UsableRange = GenerateUsableRange(level, m.ModelType, m.DamageType);
             m.Stats = GenerateStats();
             m.Manufacturer = GenerateManufacturer();
@@ -116,7 +114,9 @@ namespace LootManager.ViewModels
 
             switch (modeltype)
             {
-                // weighted chance based on model type
+                default:
+                    damagetype = DamageTypes[random.Next(0, DamageTypes.Length)];
+                    break;
             }
 
             return damagetype;
@@ -161,20 +161,100 @@ namespace LootManager.ViewModels
             return list;
         }
 
-        private static int GenerateDamageRange(int level, int damageoffset, string damagetype)
+        private static string GenerateDamageRange(int level, Weapon w)
         {
-            int damagerange = 0;
-            int damagetypemodifier = 0;
+            string damagerange = "";
 
-            switch (damagetype)
+            int basedice = 1;
+            int dicemodifier = 15;
+
+            switch (w.DamageType)
             {
+                case "Piercing":
+                    // D4 - D8
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(0, 3)];
+                    break;
+                case "Explosive":
+                    // D10 - D20
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(3, DamageRanges.Length)];
+                    break;
+                case "Plasma":
+                    // D6 - D12
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
+                    break;
+                case "Fire":
+                    // D6 - D12
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
+                    break;
+                case "Shock":
+                    // D6 - D12
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
+                    break;
                 default:
-                    damagerange = damagetypemodifier + damageoffset + 
-                        (level * random.Next(DamageRangeMinMultiplier, DamageRangeMaxMultiplier + 1));
+                    // D4 - D20
+                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += DamageRanges[random.Next(0, DamageRanges.Length)];
                     break;
             }
 
-            return damagerange;
+                return damagerange;
+        }
+
+        public static int GenerateDamageOffset(int level, Weapon w)
+        {
+            // The final product to be manipulated by the other variables
+            int damageoffset = 0;
+
+            int levelmultiplier = 3;    // Multiplied by level and added to damageoffset
+            int damagemultiplier = 1;   // Used to increment randomness by a a certain amount
+            int damagemin = 0;          // Minimum multiplied by damagemultiplier and added to damageoffset
+            int damagemax = 16;         // Maximum multiplied by damagemultiplier and added to damageoffset
+
+            switch (w.DamageRange.Substring(1, w.DamageRange.Length - 1))
+            {
+                case "D4":
+                    damagemin += 6;
+                    damagemax += 4;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                case "D6":
+                    damagemin += 4;
+                    damagemax += 4;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                case "D8":
+                    damagemin += 4;
+                    damagemax += 2;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                case "D10":
+                    damagemin += 2;
+                    damagemax += 2;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                case "D12":
+                    damagemin += 2;
+                    damagemax += 0;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                case "D20":
+                    damagemin += 0;
+                    damagemax += -4;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+                default:
+                    damagemin += 0;
+                    damagemax += 0;
+                    damageoffset += (level * levelmultiplier) + (damagemultiplier * random.Next(damagemin, damagemax));
+                    break;
+            }
+
+            return damageoffset;
         }
 
         private static int GenerateUsableRange(int level, string modeltype, string damagetype)

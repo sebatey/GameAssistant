@@ -177,29 +177,29 @@
                             Content="Damage:" />
 
                         <Label
-                            x:Name="WeaponDamageOffset"
+                            x:Name="WeaponDamageRange"
                             Grid.Row="2"
                             Grid.Column="1"
                             Width="40"
                             HorizontalAlignment="Left"
                             HorizontalContentAlignment="Right"
-                            Content="{Binding Path=SelectedItem.DamageOffset, ElementName=dGrid}" />
+                            Content="{Binding Path=SelectedItem.DamageRange, ElementName=dGrid}" />
 
                         <Label
                             Grid.Row="2"
                             Grid.Column="1"
                             Width="20"
                             HorizontalAlignment="Center"
-                            Content=" - " />
+                            Content=" + " />
 
                         <Label
-                            x:Name="WeaponDamageRange"
+                            x:Name="WeaponDamageOffset"
                             Grid.Row="2"
                             Grid.Column="1"
                             Width="40"
                             HorizontalAlignment="Right"
                             HorizontalContentAlignment="Left"
-                            Content="{Binding Path=SelectedItem.DamageRange, ElementName=dGrid}" />
+                            Content="{Binding Path=SelectedItem.DamageOffset, ElementName=dGrid}" />
 
                         <!--  To Be Implemented Still  -->
                         <!--  Stats  -->
