@@ -150,42 +150,42 @@ namespace LootManager.ViewModels
             {
                 case "Explosive":
                     // D10 - D20
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(3, DamageRanges.Length)];
                     break;
                 case "Piercing":
                     // D4 - D10
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, 4)];
                     break;
                 case "Fire":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 case "Shock":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 case "Acid":
                     // D4 - D8
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, 3)];
                     break;
                 case "Poison":
                     // D4 - D8
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, 3)];
                     break;
                 case "Plasma":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 default:
                     // D4 - D20
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, DamageRanges.Length)];
                     break;
             }

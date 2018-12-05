@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,26 @@ namespace LootManager.ViewModels
 {
     class MeleeWeapon : Weapon
     {
+        // MeleeWeapon Specific Stats
         public int ParryChance { get; set; }                 // Chance to Parry
         public int BlockChance { get; set; }                 // Chance to Block
         public int Durability { get; set; }                  // Durability
-
+        
         private static string[] ModelTypes = new string[] { "Plasma Sword", "Sword", "Baseball Bat", "Lead Pipe" };
         private static string[] DamageTypes = new string[] { "Slashing", "Blunt", "Piercing", "Fire", "Electricity", "Acid", "Poison", "Plasma" };
 
         private static string[] DamageRanges = new string[] { "D4", "D6", "D8", "D10", "D12", "D20" };
+
+        private const int ImageWidth = 48;
+        private const int ImageHeight = 48;
+        private const int ImageRows = 7;
+        private const int ImageCols = 7;
+        private static Bitmap[] ImageLayers = new Bitmap[] 
+        {
+            new Bitmap("img/sharp_handle.png"),
+            new Bitmap("img/sharp_blade.png"),
+            new Bitmap("img/sharp_hilt.png")
+        };
 
         private const string WEAPON_TYPE = "Melee";
 
@@ -134,16 +147,21 @@ namespace LootManager.ViewModels
             return attacksperturn;
         }
 
-        private static Image GeneratePicture(string modeltype)
+        private static System.Windows.Controls.Image GeneratePicture(string modeltype)
         {
-            Image image = new Image();
+            int x = random.Next(0, ImageCols);
+            int y = random.Next(0, ImageRows);
+
+            Bitmap subimageLayer_1 = ImageLayers[0].Clone(new Rectangle((x * ImageWidth), (y * ImageHeight), ImageWidth, ImageHeight), ImageLayers[0].PixelFormat);
+            Bitmap subimageLayer_2 = ImageLayers[1].Clone(new Rectangle((x * ImageWidth), (y * ImageHeight), ImageWidth, ImageHeight), ImageLayers[1].PixelFormat);
+            Bitmap subimageLayer_3 = ImageLayers[2].Clone(new Rectangle((x * ImageWidth), (y * ImageHeight), ImageWidth, ImageHeight), ImageLayers[2].PixelFormat);
 
             switch (modeltype)
             {
                 // Random based on model type
             }
 
-            return image;
+            return null;
         }
 
         private static List<Module> GenerateModules(int level, string modeltype)
@@ -172,32 +190,32 @@ namespace LootManager.ViewModels
             {
                 case "Piercing":
                     // D4 - D8
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, 3)];
                     break;
                 case "Explosive":
                     // D10 - D20
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(3, DamageRanges.Length)];
                     break;
                 case "Plasma":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 case "Fire":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 case "Shock":
                     // D6 - D12
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(1, DamageRanges.Length - 1)];
                     break;
                 default:
                     // D4 - D20
-                    damagerange += (basedice + (level / dicemodifier));
+                    damagerange += random.Next(basedice, basedice + (level / dicemodifier) + 1);
                     damagerange += DamageRanges[random.Next(0, DamageRanges.Length)];
                     break;
             }
